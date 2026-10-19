@@ -12,216 +12,418 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy: #0f1f45;
-  --blue: #1a6fe8;
-  --text: #2d3047;
-  --muted: #64748b;
-  --bg: #fafaf8;
-  --rule: #e2e8f0;
+  --ink:    #0d1b2a;
+  --blue:   #1a5fbf;
+  --text:   #1e2230;
+  --muted:  #6b7280;
+  --bg:     #fafaf8;
+  --rule:   #e5e7eb;
+  --sans:   -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --serif:  Georgia, 'Times New Roman', Times, serif;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: var(--serif);
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
 
-/* Header */
+/* ── Header ── */
 .site-header {
+  padding: 18px 40px;
   border-bottom: 1px solid var(--rule);
-  padding: 20px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: var(--sans);
 }
 
-.site-name {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--navy);
-  text-decoration: none;
-}
-
-.site-date {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+.author {
   font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.pub-date {
+  font-size: 12px;
   color: var(--muted);
 }
 
-/* Article */
-.article {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 72px 24px 100px;
+/* ── Hero ── */
+.hero {
+  background: var(--ink);
+  padding: 88px 40px 80px;
+  text-align: center;
 }
 
-.article-label {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.14em;
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--blue);
-  font-weight: 600;
-  margin-bottom: 16px;
+  color: rgba(255,255,255,0.38);
+  margin-bottom: 24px;
 }
 
-h1 {
-  font-size: 72px;
-  font-weight: 900;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: var(--navy);
-  line-height: 1.0;
-  letter-spacing: -2px;
-  margin-bottom: 48px;
+.title {
+  font-size: clamp(80px, 14vw, 128px);
+  font-weight: bold;
+  color: white;
+  line-height: 0.92;
+  letter-spacing: -4px;
+  margin-bottom: 32px;
 }
 
-.hero-image {
+.lede {
+  font-size: 17px;
+  color: rgba(255,255,255,0.52);
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-style: italic;
+}
+
+/* ── Article ── */
+.article {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+.featured {
   width: 100%;
-  border-radius: 16px;
-  margin-bottom: 56px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  margin-bottom: 60px;
 }
 
 p {
-  font-size: 19px;
-  line-height: 1.82;
+  font-size: 18px;
+  line-height: 1.84;
   color: var(--text);
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
-p strong { color: var(--navy); font-weight: 700; }
+p strong {
+  color: var(--ink);
+  font-weight: bold;
+}
 
-.section-rule {
+hr {
   border: none;
   border-top: 1px solid var(--rule);
-  margin: 48px 0;
+  margin: 52px 0;
 }
 
-.before-after {
-  background: #f1f5f9;
-  border-left: 3px solid var(--blue);
-  border-radius: 0 10px 10px 0;
-  padding: 28px 32px;
-  margin: 32px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+/* ── Barrier diagram ── */
+.barrier {
+  margin: 36px 0;
+  padding-left: 20px;
+  border-left: 2px solid var(--rule);
 }
 
-.ba-stage {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--navy);
+.b-stage {
   display: block;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 3px;
 }
 
-.ba-barrier {
-  font-size: 13px;
+.b-gap {
+  display: block;
+  font-family: var(--sans);
+  font-size: 11.5px;
   color: var(--muted);
   font-style: italic;
-  margin: 4px 0 4px 16px;
-  display: block;
+  padding-left: 10px;
+  margin-bottom: 14px;
 }
 
-.pull {
-  font-size: 24px;
-  font-weight: 700;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  line-height: 1.4;
-  color: var(--navy);
-  border-left: 3px solid var(--blue);
-  padding-left: 20px;
-  margin: 44px 0;
-}
-
+/* ── Ingredients ── */
 .ingredients {
-  margin: 28px 0 32px;
+  margin: 32px 0;
+  font-family: var(--sans);
+}
+
+.ingredient {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
 }
 
-.ingredient { display: flex; gap: 16px; align-items: baseline; }
-.ing-key { font-weight: 700; color: var(--navy); font-size: 17px; min-width: 160px; }
-.ing-val { font-size: 16px; color: var(--muted); }
+.ingredient:first-child { border-top: 1px solid var(--rule); }
 
-.progression {
-  background: #f0f6ff;
-  border-radius: 14px;
-  padding: 32px 36px;
-  margin: 40px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+.ing-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 148px;
+  flex-shrink: 0;
 }
 
-.prog-row { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 8px; }
-.prog-era { font-size: 12px; font-weight: 700; color: var(--blue); min-width: 100px; padding-top: 3px; }
-.prog-desc { font-size: 16px; color: #374151; line-height: 1.5; }
-.prog-name { font-weight: 700; color: var(--navy); }
-.prog-arrow { margin-left: 100px; color: #94a3b8; font-size: 22px; display: block; margin-bottom: 6px; }
-.prog-row.final .prog-name { color: var(--blue); font-size: 18px; }
-
-.coda {
-  background: var(--navy);
-  color: white;
-  border-radius: 18px;
-  padding: 38px 42px;
-  margin-top: 56px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
-.coda p {
-  color: rgba(255,255,255,0.80);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 17px;
-  margin-bottom: 18px;
-  line-height: 1.8;
-}
-
-.coda p:last-child { margin-bottom: 0; }
-.coda .hl { color: #93c5fd; font-weight: 600; }
-.coda p.big { font-size: 20px; color: white; font-weight: 600; }
-
-/* Footer / citation */
-.citation {
-  margin-top: 56px;
-  padding-top: 28px;
-  border-top: 1px solid var(--rule);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 13px;
+.ing-desc {
+  font-size: 14px;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
-.citation a {
+/* ── Progression ── */
+.progression {
+  margin: 40px 0;
+  font-family: var(--sans);
+}
+
+.prog-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.prog-era {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--blue);
-  text-decoration: none;
+  min-width: 86px;
+  flex-shrink: 0;
+  padding-top: 3px;
 }
 
+.prog-text {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.prog-text strong { color: var(--ink); }
+
+.prog-arrow {
+  display: block;
+  padding-left: 86px;
+  color: #c5cdd6;
+  font-size: 16px;
+  line-height: 1;
+  margin: 3px 0 7px;
+}
+
+.prog-final {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+}
+
+.prog-final .prog-era {
+  color: var(--ink);
+  letter-spacing: 0;
+  font-size: 12px;
+}
+
+.prog-final .prog-text {
+  font-size: 18px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* ── Closing ── */
+.closing {
+  margin-top: 56px;
+  font-size: 19px;
+  line-height: 2;
+  color: var(--ink);
+}
+
+.closing p {
+  font-size: 19px;
+  margin-bottom: 0;
+  line-height: 2;
+  color: var(--ink);
+}
+
+.closing .big {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.55;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+
+/* ── Interactive explorer ── */
+.explorer {
+  margin: 56px 0;
+  font-family: var(--sans);
+}
+
+.explorer-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.era-tabs {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.era-tab {
+  flex: 1;
+  padding: 11px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  background: white;
+  border: none;
+  border-right: 1px solid var(--rule);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.era-tab:last-child { border-right: none; }
+
+.era-tab:hover { background: #f8fafc; color: var(--ink); }
+
+.era-tab.active {
+  background: var(--ink);
+  color: white;
+}
+
+.era-tab .tab-year {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.era-tab.active .tab-year { color: white; }
+
+.era-panels { position: relative; }
+
+.era-panel {
+  display: none;
+  background: white;
+  border: 1px solid var(--rule);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 28px 32px;
+}
+
+.era-panel.active { display: block; }
+
+.panel-headline {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.panel-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.panel-commoditized {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.panel-tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 4px;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  background: #f8fafc;
+}
+
+.panel-impact {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+}
+
+.panel-tag.highlight {
+  background: var(--blue);
+  color: white;
+  border-color: var(--blue);
+}
+
+.panel-scarcity {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+/* ── Citation ── */
+.citation {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.citation strong {
+  color: var(--ink);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.citation a { color: var(--blue); text-decoration: none; }
 .citation a:hover { text-decoration: underline; }
 
-.cite-num {
+sup {
+  font-family: var(--sans);
   font-size: 10px;
-  vertical-align: super;
   color: var(--blue);
-  font-weight: 600;
-  cursor: default;
+  font-weight: 700;
 }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a class="site-name" href="https://github.com/VGBRO">Varun Guruvugari</a>
-  <span class="site-date">October 2026</span>
+  <a class="author" href="https://github.com/VGBRO">Varun Guruvugari</a>
+  <span class="pub-date">October 2026</span>
 </header>
 
-<article class="article">
+<section class="hero">
+  <p class="eyebrow">Perspective</p>
+  <h1 class="title">Intent</h1>
+  <p class="lede">The internet made knowledge a commodity. AI made intelligence one. Agents are making execution one. What remains?</p>
+</section>
 
-  <div class="article-label">Perspective</div>
-  <h1>Intent</h1>
+<main class="article">
 
-  <img class="hero-image" src="assets/intent-revolution-timeline.png" alt="AI is creating an intent revolution — timeline from Knowledge abundance (1995) to Intelligence abundance (2022) to Execution abundance (2024) to Intent (Today)">
+  <img class="featured" src="assets/intent-revolution-timeline.png" alt="Timeline showing the progression from Knowledge abundance (1995) to Intelligence abundance (2022) to Execution abundance (2024) to the question of what remains scarce today — human intent.">
 
   <p>The internet made knowledge a commodity.</p>
   <p>AI made intelligence one.</p>
@@ -229,22 +431,22 @@ p strong { color: var(--navy); font-weight: 700; }
   <p>What remains?</p>
   <p><strong>Wanting something.</strong></p>
 
-  <hr class="section-rule">
+  <hr>
 
   <p>For most of human history, ideas stayed ideas. Not for lack of imagination. Because the distance between dream and reality was brutal.</p>
 
-  <div class="before-after">
-    <span class="ba-stage">Dream</span>
-    <span class="ba-barrier">→ knowledge barrier</span>
-    <span class="ba-stage">Plan</span>
-    <span class="ba-barrier">→ skill / capital barrier</span>
-    <span class="ba-stage">Build</span>
+  <div class="barrier">
+    <span class="b-stage">Dream</span>
+    <span class="b-gap">→ knowledge barrier</span>
+    <span class="b-stage">Plan</span>
+    <span class="b-gap">→ skill / capital barrier</span>
+    <span class="b-stage">Build</span>
   </div>
 
   <p>So we built organizations to bridge that gap. Specialists. Planners. Layers of people whose entire job was converting someone else's idea into something real.</p>
   <p>The person with the vision was almost never the person who saw it through.</p>
 
-  <hr class="section-rule">
+  <hr>
 
   <p>AI is deleting the middle.</p>
 
@@ -256,29 +458,27 @@ p strong { color: var(--navy); font-weight: 700; }
 
   <p>The planning still exists. But most of it now happens in conversation between me and the machine.</p>
 
-  <hr class="section-rule">
+  <hr>
 
-  <p>We're already seeing this in the data. JetBrains' 2025 Developer Ecosystem Survey found that 69% of professional developers now regularly use AI coding tools.<span class="cite-num">1</span> Of those, 77% save more than an hour per week — and 41% save eight hours or more. The pace of adoption is accelerating fast.</p>
+  <p>We're already seeing this in the data. JetBrains' 2025 Developer Ecosystem Survey found that 69% of professional developers now regularly use AI coding tools.<sup>1</sup> Of those, 77% save more than an hour per week — and 41% save eight hours or more. The trajectory is clear.</p>
 
-  <p>The trajectory is clear.</p>
+  <hr>
 
-  <hr class="section-rule">
-
-  <div class="pull">So what exactly is becoming abundant?</div>
+  <p>So what's becoming abundant?</p>
 
   <div class="ingredients">
-    <div class="ingredient"><span class="ing-key">Knowledge.</span><span class="ing-val">Almost free. Has been for a decade.</span></div>
-    <div class="ingredient"><span class="ing-key">Technical skill.</span><span class="ing-val">Rapidly cheaper.</span></div>
-    <div class="ingredient"><span class="ing-key">Planning.</span><span class="ing-val">AI can reason through alternatives.</span></div>
-    <div class="ingredient"><span class="ing-key">Production.</span><span class="ing-val">Agents write code, generate assets, analyze data, operate software.</span></div>
-    <div class="ingredient"><span class="ing-key">Iteration.</span><span class="ing-val">Essentially instantaneous.</span></div>
+    <div class="ingredient"><span class="ing-name">Knowledge.</span><span class="ing-desc">Almost free. Has been for a decade.</span></div>
+    <div class="ingredient"><span class="ing-name">Technical skill.</span><span class="ing-desc">Rapidly cheaper.</span></div>
+    <div class="ingredient"><span class="ing-name">Planning.</span><span class="ing-desc">AI can reason through alternatives.</span></div>
+    <div class="ingredient"><span class="ing-name">Production.</span><span class="ing-desc">Agents write code, generate assets, analyze data, operate software.</span></div>
+    <div class="ingredient"><span class="ing-name">Iteration.</span><span class="ing-desc">Essentially instantaneous.</span></div>
   </div>
 
   <p>And what isn't?</p>
   <p><strong>Wanting something.</strong></p>
   <p>The model can help you think through options. It can build whatever you describe. But it can't tell you what should exist. It can't feel the gap between what is and what should be. It can't decide this is worth making.</p>
 
-  <hr class="section-rule">
+  <hr>
 
   <p>Here's the part that surprises people: when building gets cheap, taste gets more valuable, not less.</p>
 
@@ -288,46 +488,134 @@ p strong { color: var(--navy); font-weight: 700; }
 
   <p>If everyone can generate content, generating content isn't scarce. Knowing what is worth saying is.</p>
 
-  <hr class="section-rule">
+  <hr>
 
   <div class="progression">
     <div class="prog-row">
-      <span class="prog-era">1995–2015</span>
-      <span class="prog-desc"><span class="prog-name">Knowledge abundance.</span> Google. Wikipedia. The internet.</span>
+      <span class="prog-era">1995&ndash;2015</span>
+      <span class="prog-text"><strong>Knowledge abundance.</strong> Google. Wikipedia. The internet.</span>
     </div>
-    <span class="prog-arrow">↓</span>
+    <span class="prog-arrow">&#8595;</span>
     <div class="prog-row">
-      <span class="prog-era">2015–2025</span>
-      <span class="prog-desc"><span class="prog-name">Intelligence abundance.</span> Foundation models.</span>
+      <span class="prog-era">2015&ndash;2025</span>
+      <span class="prog-text"><strong>Intelligence abundance.</strong> Foundation models.</span>
     </div>
-    <span class="prog-arrow">↓</span>
+    <span class="prog-arrow">&#8595;</span>
     <div class="prog-row">
-      <span class="prog-era">2025–2030</span>
-      <span class="prog-desc"><span class="prog-name">Execution abundance.</span> Agents.</span>
+      <span class="prog-era">2025&ndash;2030</span>
+      <span class="prog-text"><strong>Execution abundance.</strong> Agents.</span>
     </div>
-    <span class="prog-arrow">↓</span>
-    <div class="prog-row final">
-      <span class="prog-era">And therefore:</span>
-      <span class="prog-desc"><span class="prog-name">Intent becomes the scarce resource.</span></span>
+    <div class="prog-final">
+      <div class="prog-row">
+        <span class="prog-era">And therefore</span>
+        <span class="prog-text"><strong>Intent becomes the scarce resource.</strong></span>
+      </div>
     </div>
   </div>
 
   <p>Not eventually. Now.</p>
 
-  <div class="coda">
-    <p class="big">The people who define the next decade aren't the ones who use AI fastest.</p>
-    <p>They're the ones who are most clear about what they want — and <span class="hl">disciplined enough to pursue it.</span></p>
-    <p>The Dream → Plan → Build cycle still exists. It just runs faster than ever.</p>
+  <div class="closing">
+    <p class="big">The people who define the next decade aren't the ones who use AI fastest. They're the ones who are most clear about what they want — and disciplined enough to pursue it.</p>
+    <p>The Dream &#8594; Plan &#8594; Build cycle still exists. It just runs faster than ever.</p>
     <p>The hardest part is still the first step.</p>
-    <p>Knowing what you're building.<br>And why it should exist.</p>
+    <p>Knowing what you're building.</p>
+    <p>And why it should exist.</p>
+  </div>
+
+  <!-- Interactive explorer -->
+  <div class="explorer">
+    <div class="explorer-label">Explore the progression</div>
+    <div class="era-tabs" role="tablist">
+      <button class="era-tab active" onclick="showEra(0)" role="tab" aria-selected="true">
+        <span class="tab-year">1995</span>
+        Knowledge
+      </button>
+      <button class="era-tab" onclick="showEra(1)" role="tab" aria-selected="false">
+        <span class="tab-year">2022</span>
+        Intelligence
+      </button>
+      <button class="era-tab" onclick="showEra(2)" role="tab" aria-selected="false">
+        <span class="tab-year">2024</span>
+        Execution
+      </button>
+      <button class="era-tab" onclick="showEra(3)" role="tab" aria-selected="false">
+        <span class="tab-year">Today</span>
+        Intent
+      </button>
+    </div>
+    <div class="era-panels">
+
+      <div class="era-panel active" id="era-0">
+        <div class="panel-headline">Knowledge abundance</div>
+        <div class="panel-sub">1995&#8211;2015 &mdash; Google, Wikipedia, the internet</div>
+        <div class="panel-commoditized">
+          <span class="panel-tag">Facts</span>
+          <span class="panel-tag">Research</span>
+          <span class="panel-tag">Lookup</span>
+          <span class="panel-tag">Reference</span>
+          <span class="panel-tag">Discovery</span>
+        </div>
+        <div class="panel-impact">Any human with a connection could access the same information as a PhD. The bottleneck shifted from <em>knowing</em> to <em>thinking</em>. Experts who simply held information became less valuable overnight.</div>
+      </div>
+
+      <div class="era-panel" id="era-1">
+        <div class="panel-headline">Intelligence abundance</div>
+        <div class="panel-sub">2015&#8211;2025 &mdash; Foundation models, ChatGPT era</div>
+        <div class="panel-commoditized">
+          <span class="panel-tag">Analysis</span>
+          <span class="panel-tag">Summarization</span>
+          <span class="panel-tag">Reasoning</span>
+          <span class="panel-tag">Translation</span>
+          <span class="panel-tag">Drafting</span>
+        </div>
+        <div class="panel-impact">Any human with an API key could reason like a domain expert. The bottleneck shifted from <em>thinking</em> to <em>doing</em>. Analysts who simply processed information saw their moat shrink.</div>
+      </div>
+
+      <div class="era-panel" id="era-2">
+        <div class="panel-headline">Execution abundance</div>
+        <div class="panel-sub">2025&#8211;2030 &mdash; Agents, Agentforce, agentic AI</div>
+        <div class="panel-commoditized">
+          <span class="panel-tag">Writing code</span>
+          <span class="panel-tag">Running workflows</span>
+          <span class="panel-tag">Generating assets</span>
+          <span class="panel-tag">Operating software</span>
+        </div>
+        <div class="panel-impact">Any human with a description can build and ship. The bottleneck shifts from <em>doing</em> to <em>deciding</em>. Builders who simply execute a spec see their advantage compress.</div>
+      </div>
+
+      <div class="era-panel" id="era-3">
+        <div class="panel-scarcity">What remains scarce: human intent</div>
+        <div class="panel-sub">The one thing the model can&#8217;t generate is the decision that something <em>should</em> exist.</div>
+        <div class="panel-commoditized">
+          <span class="panel-tag highlight">Taste</span>
+          <span class="panel-tag highlight">Vision</span>
+          <span class="panel-tag highlight">Judgment</span>
+          <span class="panel-tag highlight">Wanting</span>
+        </div>
+        <div class="panel-impact">AI can help you think through options. It can build whatever you describe. It can iterate instantly. But it can&#8217;t feel the gap between what is and what should be. That part is still yours.</div>
+      </div>
+
+    </div>
   </div>
 
   <div class="citation">
-    <p><strong>Sources</strong></p>
-    <p><span class="cite-num">1</span> JetBrains, <a href="https://devecosystem-2025.jetbrains.com/artificial-intelligence/" target="_blank" rel="noopener">Developer Ecosystem Survey 2025 — Artificial Intelligence</a>. 69% of developers regularly use at least one AI coding assistant, agent, or code editor. 77% of AI tool users save more than one hour per week.</p>
+    <strong>Source</strong>
+    <p><sup>1</sup> JetBrains, <a href="https://devecosystem-2025.jetbrains.com/artificial-intelligence/" target="_blank" rel="noopener">Developer Ecosystem Survey 2025 &#8212; Artificial Intelligence</a>. 69% of developers regularly use at least one AI coding assistant, agent, or code editor. 77% of AI tool users save more than one hour per week.</p>
   </div>
 
-</article>
+</main>
 
+<script>
+function showEra(index) {
+  document.querySelectorAll('.era-tab').forEach(function(tab, i) {
+    tab.classList.toggle('active', i === index);
+    tab.setAttribute('aria-selected', i === index ? 'true' : 'false');
+  });
+  document.querySelectorAll('.era-panel').forEach(function(panel, i) {
+    panel.classList.toggle('active', i === index);
+  });
+}
+</script>
 </body>
 </html>
