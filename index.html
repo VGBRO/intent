@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intent — Varun Guruvugari</title>
+<meta name="description" content="The internet made knowledge a commodity. AI made intelligence one. Agents are making execution one. What remains?">
+<meta property="og:title" content="Intent">
+<meta property="og:description" content="The internet made knowledge a commodity. AI made intelligence one. Agents are making execution one. What remains?">
+<meta property="og:image" content="assets/intent-revolution-timeline.png">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0f1f45;
+  --blue: #1a6fe8;
+  --text: #2d3047;
+  --muted: #64748b;
+  --bg: #fafaf8;
+  --rule: #e2e8f0;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-name {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.site-date {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Article */
+.article {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 72px 24px 100px;
+}
+
+.article-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 72px;
+  font-weight: 900;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--navy);
+  line-height: 1.0;
+  letter-spacing: -2px;
+  margin-bottom: 48px;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 56px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.82;
+  color: var(--text);
+  margin-bottom: 22px;
+}
+
+p strong { color: var(--navy); font-weight: 700; }
+
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 48px 0;
+}
+
+.before-after {
+  background: #f1f5f9;
+  border-left: 3px solid var(--blue);
+  border-radius: 0 10px 10px 0;
+  padding: 28px 32px;
+  margin: 32px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.ba-stage {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  display: block;
+}
+
+.ba-barrier {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 4px 0 4px 16px;
+  display: block;
+}
+
+.pull {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.4;
+  color: var(--navy);
+  border-left: 3px solid var(--blue);
+  padding-left: 20px;
+  margin: 44px 0;
+}
+
+.ingredients {
+  margin: 28px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.ingredient { display: flex; gap: 16px; align-items: baseline; }
+.ing-key { font-weight: 700; color: var(--navy); font-size: 17px; min-width: 160px; }
+.ing-val { font-size: 16px; color: var(--muted); }
+
+.progression {
+  background: #f0f6ff;
+  border-radius: 14px;
+  padding: 32px 36px;
+  margin: 40px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.prog-row { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 8px; }
+.prog-era { font-size: 12px; font-weight: 700; color: var(--blue); min-width: 100px; padding-top: 3px; }
+.prog-desc { font-size: 16px; color: #374151; line-height: 1.5; }
+.prog-name { font-weight: 700; color: var(--navy); }
+.prog-arrow { margin-left: 100px; color: #94a3b8; font-size: 22px; display: block; margin-bottom: 6px; }
+.prog-row.final .prog-name { color: var(--blue); font-size: 18px; }
+
+.coda {
+  background: var(--navy);
+  color: white;
+  border-radius: 18px;
+  padding: 38px 42px;
+  margin-top: 56px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.coda p {
+  color: rgba(255,255,255,0.80);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  margin-bottom: 18px;
+  line-height: 1.8;
+}
+
+.coda p:last-child { margin-bottom: 0; }
+.coda .hl { color: #93c5fd; font-weight: 600; }
+.coda p.big { font-size: 20px; color: white; font-weight: 600; }
+
+/* Footer / citation */
+.citation {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.citation a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.citation a:hover { text-decoration: underline; }
+
+.cite-num {
+  font-size: 10px;
+  vertical-align: super;
+  color: var(--blue);
+  font-weight: 600;
+  cursor: default;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-name" href="https://github.com/VGBRO">Varun Guruvugari</a>
+  <span class="site-date">October 2026</span>
+</header>
+
+<article class="article">
+
+  <div class="article-label">Perspective</div>
+  <h1>Intent</h1>
+
+  <img class="hero-image" src="assets/intent-revolution-timeline.png" alt="AI is creating an intent revolution — timeline from Knowledge abundance (1995) to Intelligence abundance (2022) to Execution abundance (2024) to Intent (Today)">
+
+  <p>The internet made knowledge a commodity.</p>
+  <p>AI made intelligence one.</p>
+  <p>Agents are making execution one.</p>
+  <p>What remains?</p>
+  <p><strong>Wanting something.</strong></p>
+
+  <hr class="section-rule">
+
+  <p>For most of human history, ideas stayed ideas. Not for lack of imagination. Because the distance between dream and reality was brutal.</p>
+
+  <div class="before-after">
+    <span class="ba-stage">Dream</span>
+    <span class="ba-barrier">→ knowledge barrier</span>
+    <span class="ba-stage">Plan</span>
+    <span class="ba-barrier">→ skill / capital barrier</span>
+    <span class="ba-stage">Build</span>
+  </div>
+
+  <p>So we built organizations to bridge that gap. Specialists. Planners. Layers of people whose entire job was converting someone else's idea into something real.</p>
+  <p>The person with the vision was almost never the person who saw it through.</p>
+
+  <hr class="section-rule">
+
+  <p>AI is deleting the middle.</p>
+
+  <p>Consider what I'm building right now: a system that knows what I'm working on, remembers the state of every project, picks the right model for each task, delegates to agents, verifies their work, and lets me operate it from my phone.</p>
+
+  <p>Two years ago, that was a product spec — requiring a product manager, an architect, a UX designer, a backend engineer, a frontend engineer, DevOps, integrations, and a testing cycle.</p>
+
+  <p>Today, I described it to an AI.</p>
+
+  <p>The planning still exists. But most of it now happens in conversation between me and the machine.</p>
+
+  <hr class="section-rule">
+
+  <p>We're already seeing this in the data. JetBrains' 2025 Developer Ecosystem Survey found that 69% of professional developers now regularly use AI coding tools.<span class="cite-num">1</span> Of those, 77% save more than an hour per week — and 41% save eight hours or more. The pace of adoption is accelerating fast.</p>
+
+  <p>The trajectory is clear.</p>
+
+  <hr class="section-rule">
+
+  <div class="pull">So what exactly is becoming abundant?</div>
+
+  <div class="ingredients">
+    <div class="ingredient"><span class="ing-key">Knowledge.</span><span class="ing-val">Almost free. Has been for a decade.</span></div>
+    <div class="ingredient"><span class="ing-key">Technical skill.</span><span class="ing-val">Rapidly cheaper.</span></div>
+    <div class="ingredient"><span class="ing-key">Planning.</span><span class="ing-val">AI can reason through alternatives.</span></div>
+    <div class="ingredient"><span class="ing-key">Production.</span><span class="ing-val">Agents write code, generate assets, analyze data, operate software.</span></div>
+    <div class="ingredient"><span class="ing-key">Iteration.</span><span class="ing-val">Essentially instantaneous.</span></div>
+  </div>
+
+  <p>And what isn't?</p>
+  <p><strong>Wanting something.</strong></p>
+  <p>The model can help you think through options. It can build whatever you describe. But it can't tell you what should exist. It can't feel the gap between what is and what should be. It can't decide this is worth making.</p>
+
+  <hr class="section-rule">
+
+  <p>Here's the part that surprises people: when building gets cheap, taste gets more valuable, not less.</p>
+
+  <p>If everyone can produce 100 designs, the advantage isn't producing 100 designs. It's knowing which one deserves to exist.</p>
+
+  <p>If everyone can build an app, writing code isn't the differentiator. Knowing what should be built is.</p>
+
+  <p>If everyone can generate content, generating content isn't scarce. Knowing what is worth saying is.</p>
+
+  <hr class="section-rule">
+
+  <div class="progression">
+    <div class="prog-row">
+      <span class="prog-era">1995–2015</span>
+      <span class="prog-desc"><span class="prog-name">Knowledge abundance.</span> Google. Wikipedia. The internet.</span>
+    </div>
+    <span class="prog-arrow">↓</span>
+    <div class="prog-row">
+      <span class="prog-era">2015–2025</span>
+      <span class="prog-desc"><span class="prog-name">Intelligence abundance.</span> Foundation models.</span>
+    </div>
+    <span class="prog-arrow">↓</span>
+    <div class="prog-row">
+      <span class="prog-era">2025–2030</span>
+      <span class="prog-desc"><span class="prog-name">Execution abundance.</span> Agents.</span>
+    </div>
+    <span class="prog-arrow">↓</span>
+    <div class="prog-row final">
+      <span class="prog-era">And therefore:</span>
+      <span class="prog-desc"><span class="prog-name">Intent becomes the scarce resource.</span></span>
+    </div>
+  </div>
+
+  <p>Not eventually. Now.</p>
+
+  <div class="coda">
+    <p class="big">The people who define the next decade aren't the ones who use AI fastest.</p>
+    <p>They're the ones who are most clear about what they want — and <span class="hl">disciplined enough to pursue it.</span></p>
+    <p>The Dream → Plan → Build cycle still exists. It just runs faster than ever.</p>
+    <p>The hardest part is still the first step.</p>
+    <p>Knowing what you're building.<br>And why it should exist.</p>
+  </div>
+
+  <div class="citation">
+    <p><strong>Sources</strong></p>
+    <p><span class="cite-num">1</span> JetBrains, <a href="https://devecosystem-2025.jetbrains.com/artificial-intelligence/" target="_blank" rel="noopener">Developer Ecosystem Survey 2025 — Artificial Intelligence</a>. 69% of developers regularly use at least one AI coding assistant, agent, or code editor. 77% of AI tool users save more than one hour per week.</p>
+  </div>
+
+</article>
+
+</body>
+</html>
